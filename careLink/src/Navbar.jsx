@@ -36,7 +36,7 @@ const Navbar = () => {
     },
     ml: {
       home: 'ഹോം',
-      healthCard: 'ആരോഗ്യ കാർड്',
+      healthCard: 'ആരോഗ്യ കാർഡ്',
       medicalRecords: 'മെഡിക്കൽ റെക്കോർഡ്സ്',
       findDoctors: 'ഡോക്ടർമാരെ കണ്ടെത്തുക',
       surveillance: 'ആരോഗ്യ നിരീക്ഷണം',
@@ -65,29 +65,29 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="desktop-nav">
-            <a href="/" className="nav-link">
+            <Link to="/" className="nav-link">
               <span>{currentNav.home}</span>
-            </a>
-            
-            <a href="./healthCard" className="nav-link">
+            </Link>
+
+            <Link to="/healthCard" className="nav-link">
               <QrCode className="nav-icon" />
               <span>{currentNav.healthCard}</span>
-            </a>
+            </Link>
 
-            <a href="#" className="nav-link">
+            <Link to="/medical-records" className="nav-link">
               <FileText className="nav-icon" />
               <span>{currentNav.medicalRecords}</span>
-            </a>
+            </Link>
 
-            <a href="#" className="nav-link">
+            <Link to="/find-doctors" className="nav-link">
               <Users className="nav-icon" />
               <span>{currentNav.findDoctors}</span>
-            </a>
+            </Link>
 
-            <a href="#" className="nav-link">
+            <Link to="/surveillance" className="nav-link">
               <Shield className="nav-icon" />
               <span>{currentNav.surveillance}</span>
-            </a>
+            </Link>
           </div>
 
           {/* Right Actions */}
@@ -137,25 +137,25 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div className={`mobile-nav ${isOpen ? "visible" : "hidden"}`}>
           <div className="mobile-nav-container">
-            <a href="#" className="mobile-nav-link">
+            <Link to="/" className="mobile-nav-link">
               <span>{currentNav.home}</span>
-            </a>
-            <a href="#" className="mobile-nav-link">
+            </Link>
+            <Link to="/healthCard" className="mobile-nav-link">
               <QrCode className="nav-icon" />
               <span>{currentNav.healthCard}</span>
-            </a>
-            <a href="#" className="mobile-nav-link">
+            </Link>
+            <Link to="/medical-records" className="mobile-nav-link">
               <FileText className="nav-icon" />
               <span>{currentNav.medicalRecords}</span>
-            </a>
-            <a href="#" className="mobile-nav-link">
+            </Link>
+            <Link to="/find-doctors" className="mobile-nav-link">
               <Users className="nav-icon" />
               <span>{currentNav.findDoctors}</span>
-            </a>
-            <a href="#" className="mobile-nav-link">
+            </Link>
+            <Link to="/surveillance" className="mobile-nav-link">
               <Shield className="nav-icon" />
               <span>{currentNav.surveillance}</span>
-            </a>
+            </Link>
 
             {/* Mobile Language Selector */}
             <div className="mobile-lang-container">

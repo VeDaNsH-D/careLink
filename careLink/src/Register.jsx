@@ -1,40 +1,20 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Register.css";
 
 function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    fetch("http://localhost:5000/api/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log("User registered:", data))
-      .catch((err) => console.error("Error:", err));
-  };
-
   return (
-    <div>
-      <h2>Register User</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <button type="submit">Register</button>
-      </form>
+    <div className="register-choice-container">
+      <h1 className="register-title">Choose Registration Type</h1>
+      <div className="register-cards">
+        <Link to="/register/doctor" className="register-card">
+          <h2>Doctor</h2>
+          <p>Register as a verified medical professional</p>
+        </Link>
+        <Link to="/register/worker" className="register-card">
+          <h2>Worker</h2>
+          <p>Register to access your digital health card</p>
+        </Link>
+      </div>
     </div>
   );
 }
