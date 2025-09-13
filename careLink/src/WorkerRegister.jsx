@@ -1,40 +1,22 @@
 import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import "./Register.css";
 
 function WorkerRegister() {
   const [form, setForm] = useState({
-    worker_name: "",
-    email: "",
+    name: "",
+    workerId: "",
     password: "",
-    phone_number: "",
-    address: "",
-    occupation: "",
   });
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError("");
-    try {
-      const res = await axios.post(
-        "http://localhost:5000/api/register/worker",
-        form
-      );
-      if (res.status === 201) {
-        alert("Worker registered successfully!");
-        navigate("/login/worker");
-      }
-    } catch (err) {
-      console.error(err);
-      setError(err.response?.data?.msg || "Registration failed");
-    }
+    console.log("Worker registered:", form);
+    alert("Worker registration submitted!");
+    // TODO: send to backend
   };
 
   return (
@@ -43,17 +25,17 @@ function WorkerRegister() {
       <form className="full-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          name="worker_name"
+          name="name"
           placeholder="Full Name"
-          value={form.worker_name}
+          value={form.name}
           onChange={handleChange}
           required
         />
         <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={form.email}
+          type="text"
+          name="workerId"
+          placeholder="Worker ID"
+          value={form.workerId}
           onChange={handleChange}
           required
         />
@@ -65,28 +47,6 @@ function WorkerRegister() {
           onChange={handleChange}
           required
         />
-        <input
-          type="text"
-          name="phone_number"
-          placeholder="Phone Number"
-          value={form.phone_number}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          value={form.address}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="occupation"
-          placeholder="Occupation"
-          value={form.occupation}
-          onChange={handleChange}
-        />
-        {error && <p className="error">{error}</p>}
         <button type="submit">Register</button>
       </form>
     </div>

@@ -11,7 +11,6 @@ import Footer from "./Footer.jsx"; // ✅ import as component
 import './Footer.css'
 import DoctorRegister from "./DoctorRegister";
 import WorkerRegister from "./WorkerRegister";
-import LoginForm from "./LoginForm.jsx";
 
 
 function App() {
@@ -29,8 +28,6 @@ function App() {
           <Route path="/register/doctor" element={<DoctorRegister />} /> {/* doctor registration form */}
           <Route path="/register/worker" element={<WorkerRegister />} /> {/* worker registration form */}
           <Route path="/login" element={<Login />} />
-          <Route path="/login/doctor" element={<LoginForm userType="Doctor" />} />
-          <Route path="/login/worker" element={<LoginForm userType="Worker" />} />
 
           {/* Add these placeholders for now */}
           <Route path="/medical-records" element={<h1>Medical Records Page</h1>} />
